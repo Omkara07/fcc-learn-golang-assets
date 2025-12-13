@@ -7,6 +7,15 @@ type authenticationInfo struct {
 	password string
 }
 
+// i am binding or say attaching this function to the struct. the first parameter is a special parameter which indicates the struct
+func (a authenticationInfo) getBasicAuth() string {
+	return fmt.Sprintf(
+		"Authorization : Basic %s:%s",
+		a.username,
+		a.password,
+	)
+}
+
 // ?
 
 // don't touch below this line
