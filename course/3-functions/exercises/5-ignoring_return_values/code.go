@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	firstName, lastName := getNames()
+	// ignoring an unused variable
+	firstName, _ := getNames()
 	fmt.Println("Welcome to Textio,", firstName)
 }
 
