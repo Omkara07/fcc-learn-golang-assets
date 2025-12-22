@@ -1,12 +1,21 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"sort"
 )
 
 func deleteIfNecessary(users map[string]user, name string) (deleted bool, err error) {
-	// ?
+	user, ok := users[name]
+	if !ok {
+		return false, errors.New("not found")
+	}
+	if !user.scheduledForDeletion {
+		return false, nil
+	}
+	delete(users, name)
+	return true, nil
 }
 
 // don't touch below this line
