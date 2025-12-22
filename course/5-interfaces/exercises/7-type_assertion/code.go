@@ -5,7 +5,24 @@ import (
 )
 
 func getExpenseReport(e expense) (string, float64) {
-	// ?
+	// // using safe type assertion and intial statement with if
+	// if em, ok := e.(email); ok {
+	// 	return em.toAddress, em.cost()
+	// }
+	// if sm, ok := e.(sms); ok {
+	// 	return sm.toPhoneNumber, sm.cost()
+	// }
+	// return "", 0.0
+
+	// using type switch (good practice)
+	switch V := e.(type) {
+	case email:
+		return V.toAddress, V.cost()
+	case sms:
+		return V.toPhoneNumber, V.cost()
+	default:
+		return "", 0.0
+	}
 }
 
 // don't touch below this line

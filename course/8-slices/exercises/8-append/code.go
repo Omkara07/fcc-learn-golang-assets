@@ -7,8 +7,30 @@ type cost struct {
 	value float64
 }
 
+// simple solution
+// func getCostsByDay(costs []cost) []float64 {
+// 	ans := make([]float64, costs[len(costs)-1].day+1)
+// 	for i := 0; i < len(costs); i++ {
+// 		ans[costs[i].day] += costs[i].value
+// 	}
+
+// 	return ans
+// }
+
+// solution using append
 func getCostsByDay(costs []cost) []float64 {
-	// ?
+	// ans slice
+	ans := []float64{}
+	for i := 0; i < len(costs); i++ {
+		// if the current day is >= the current length of the answer slice then expand the slice
+		for costs[i].day >= len(ans) {
+			ans = append(ans, 0.0)
+		}
+		// update the cost of the day
+		ans[costs[i].day] += costs[i].value
+	}
+
+	return ans
 }
 
 // dont edit below this line
