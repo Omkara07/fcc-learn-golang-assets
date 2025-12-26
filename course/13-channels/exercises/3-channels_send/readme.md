@@ -1,8 +1,10 @@
 # Channels
 
-Empty structs are often used as `tokens` in Go programs. In this context, a token is a [unary](https://en.wikipedia.org/wiki/Unary_operation) value. In other words, we don't care *what* is passed through the channel. We care *when* and *if* it is passed.
+Empty structs are often used as `tokens` in Go programs. In this context, a token is a [unary](https://en.wikipedia.org/wiki/Unary_operation) value. In other words, we don't care _what_ is passed through the channel. We care _when_ and _if_ it is passed.
 
-We can block and wait until *something* is sent on a channel using the following syntax
+Empty structs are tokens.
+
+We can block and wait until _something_ is sent on a channel using the following syntax
 
 ```go
 <-ch

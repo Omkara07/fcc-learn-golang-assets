@@ -5,8 +5,32 @@ import (
 	"time"
 )
 
+// // 1st way
+// func concurrrentFib(n int) {
+// 	// create a channel
+// 	fibCh := make(chan int)
+// 	// recieve the numbers from the channel in a goroutine
+// 	go func() {
+// 		for num := range fibCh {
+// 			fmt.Println(num)
+// 		}
+// 	}()
+// 	// then call the fib func in the main thread
+// 	fibonacci(n, fibCh)
+// }
+
+// 2nd way
 func concurrrentFib(n int) {
-	// ?
+	// create a channel
+	fibCh := make(chan int)
+
+	// call the fib func as a goroutine
+	go fibonacci(n, fibCh)
+
+	// then recieve the numbers in the main thread
+	for num := range fibCh {
+		fmt.Println(num)
+	}
 }
 
 // TEST SUITE - Don't touch below this line

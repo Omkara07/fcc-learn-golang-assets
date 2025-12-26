@@ -6,6 +6,7 @@ import (
 )
 
 func sendEmail(message string) {
+	// execute the anonymous func and the print statement concurrently so that recieved is printed after sent
 	go func() {
 		time.Sleep(time.Millisecond * 250)
 		fmt.Printf("Email received: '%s'\n", message)

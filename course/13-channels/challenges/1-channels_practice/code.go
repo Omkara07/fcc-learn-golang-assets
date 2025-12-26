@@ -9,7 +9,7 @@ func pingPong(numPings int) {
 	pings := make(chan struct{})
 	pongs := make(chan struct{})
 	go ponger(pings, pongs)
-	go pinger(pings, pongs, numPings)
+	pinger(pings, pongs, numPings)
 }
 
 // TEST SUITE - Don't touch below this line
